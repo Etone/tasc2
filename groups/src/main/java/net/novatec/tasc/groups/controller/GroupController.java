@@ -1,9 +1,11 @@
 package net.novatec.tasc.groups.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import net.novatec.tasc.groups.entity.Group;
 import net.novatec.tasc.groups.service.GroupService;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,7 @@ public class GroupController {
 
   @GetMapping("/{name}")
   public Iterable<Group> getGroupsWithName(@PathVariable(name="name") String name) {
+    log.info("GET-Request: Finding groups with name={}", name);
     return service.getByName(name);
   }
 
