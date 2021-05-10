@@ -23,13 +23,6 @@ public class GroupController {
     return service.getAllGroups();
   }
 
-  @PostMapping
-  public ResponseEntity<Void> addGroup(@RequestBody Group group){
-    log.info("POST - Adding new group: {}", group);
-    service.addGroup(group);
-    return ResponseEntity.ok().build();
-  }
-
   @GetMapping("/{id}")
   public ResponseEntity<ApiGroup> getGroupWithId(@PathVariable(name="id") Integer id){
     log.info("GET - find group with id={}", id);
@@ -38,6 +31,13 @@ public class GroupController {
     } catch(GroupNotFoundException t){
       return ResponseEntity.notFound().build();
     }
+  }
+
+  @PostMapping
+  public ResponseEntity<Void> addGroup(@RequestBody Group group){
+    log.info("POST - Adding new group: {}", group);
+    service.addGroup(group);
+    return ResponseEntity.ok().build();
   }
 
   @PutMapping("/{id}")

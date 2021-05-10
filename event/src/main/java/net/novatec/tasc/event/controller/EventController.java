@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventController {
 
   @GetMapping("/{groupId}")
-  public ResponseEntity<Iterable<Event>> getEventWithGroupId(@PathVariable(name="groupId") Integer groupId){
+  public ResponseEntity<Iterable<Event>> getEventWithGroupId(@PathVariable(name="groupId") Integer groupId) throws InterruptedException {
     log.info("GET - Find Events for group {}", groupId);
+    Thread.sleep(10L * 1000L);
     return ResponseEntity.ok(new ArrayList<>());
   }
 
