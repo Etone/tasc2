@@ -33,3 +33,7 @@ build/
 .vscode/
 
 groups/src/main/resources/application-local.properties
+
+node_modules/vue-cli-plugin-axios/generator/
+
+node_modules/vue-cli-plugin-axios/
