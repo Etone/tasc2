@@ -23,7 +23,15 @@
   </div>
 </header>
 <main class="mdc-top-app-bar--fixed-adjust">
-  <h1 th:text="'Hello, ' + ${name} + '!'" />
+  <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
+  <a th:href="'/ui/' + ${name.length()}">Navigate</a>
+
+  <form th:action="'/ui/process/' + ${person.getName()}" th:object="${person}" method="post">
+    <label for="fname">Name:</label><br>
+    <input type="text" id="fname" name="fname" value="John" th:field="*{name}"><br>
+    <input type="submit" value="Submit">
+  </form>
+
 </main>
 </body>
 </html>

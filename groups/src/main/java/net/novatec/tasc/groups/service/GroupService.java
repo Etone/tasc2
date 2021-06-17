@@ -40,7 +40,7 @@ public class GroupService {
   public void addGroup(Group group) {
     log.debug("Adding new Group: {}", group);
     allGroups.increment();
-    messageService.sendMessage(CREATE_GROUP_TOPIC, group.toString());
+    //messageService.sendMessage(CREATE_GROUP_TOPIC, group.toString());
     repository.save(group);
   }
 

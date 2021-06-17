@@ -1,5 +1,6 @@
 package net.novatec.tasc.groups.entity;
 
+import java.util.List;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,9 @@ public class Group {
   private String name;
 
   private String description;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subscribed")
+  List<User> subscribers;
 
 
 }

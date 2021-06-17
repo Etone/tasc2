@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.novatec.tasc.groups.entity.ApiGroup;
 import net.novatec.tasc.groups.entity.Group;
 import net.novatec.tasc.groups.entity.GroupNotFoundException;
+import net.novatec.tasc.groups.entity.Sum;
 import net.novatec.tasc.groups.service.GroupService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,12 @@ public class GroupController {
     log.info("PUT - updating Group with id {}, setting to {}", id, newGroup);
 
     return ResponseEntity.ok(service.updateGroup(newGroup, id));
+  }
+
+  @GetMapping("/sum/{a}/{b}")
+  public ResponseEntity<Integer> sumNumbers(@PathVariable("a") int a, @PathVariable("b") int b){
+    //return ResponseEntity.ok(sumUp.getA() + sumUp.getB());
+    return ResponseEntity.ok(a + b);
   }
 
 }
